@@ -1,0 +1,14 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-init="board = [['','',''],['','',''],['','','']]">
+    <table border="1">
+        <tr ng-repeat="row in board"><td ng-repeat="col in row track by $index">{{col}}</td></tr>
+    </table>
+    </div>
+  </body>
+</html>
