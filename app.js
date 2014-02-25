@@ -14,7 +14,8 @@ app.get('/', function(req,res){
 
 app.get('/move', function(req,res){
     var board = JSON.parse(req.query.board);
-    var nextMove = move.makeMove(board);
+    var letter = req.query.letter;
+    var nextMove = move.makeMove(board, letter);
     res.send(200, nextMove);
 });
 

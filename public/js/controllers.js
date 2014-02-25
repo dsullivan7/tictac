@@ -11,12 +11,12 @@ function tictacController($scope, $http, $timeout, $sce){
             $scope.makingMove = true;
             $scope.board[move[0]][move[1]] = $scope.team;
            
-            judge(function(){$timeout(oppMove,1000)}); 
+            judge(oppMove); 
         }
     }
     
     var oppMove = function(){
-        $http.get('/move?board='+JSON.stringify($scope.board)).  
+        $http.get('/move?board='+JSON.stringify($scope.board)+"&letter="+$scope.opponent).  
             success(function(data){
                 $scope.board[data[0]][data[1]] = $scope.opponent;
                 $scope.makingMove = false;
